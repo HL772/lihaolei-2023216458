@@ -1,3 +1,5 @@
+# 用于显示保存的纹理特征文件
+
 import numpy as np
 
 # 1. 加载 .npy 文件
