@@ -1,5 +1,5 @@
 """
-脚本说明：加载已训练的 MNIST CNN，对学号图片进行分割与逐位识别。
+脚本说明：加载实验三代码.ipynb训练的 MNIST CNN，对学号图片进行分割与逐位识别。
 使用示例：python predict_id.py --weights mnist_cnn_best.pth  # 默认 my_id.jpg
 核心可调：--image --invert --min-area --pad --min-width --device
 """
