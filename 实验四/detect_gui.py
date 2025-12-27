@@ -24,10 +24,20 @@ class DetectorApp:
         self.model = None
         self.image_path = None
 
-        default_weights = Path("train_result/weights/best.pt")
+        # --- 修改开始 ---
+        # 1. 获取当前脚本文件所在的绝对目录
+        base_dir = Path(__file__).resolve().parent
+        
+        # 2. 使用 base_dir 拼接权重文件的路径
+        # 这样无论你在哪里运行脚本，它都会去脚本同级目录下的 train_result 里面找
+        default_weights = base_dir / "train_result" / "weights" / "best.pt"
+        
         if not default_weights.exists():
+            # 备选方案：检查当前目录下是否有 yolov8n.pt
             if Path("yolov8n.pt").exists():
                 default_weights = Path("yolov8n.pt")
+        # --- 修改结束 ---
+
         self.weights_var = tk.StringVar(value=str(default_weights))
         self.image_var = tk.StringVar(value="")
         self.conf_var = tk.IntVar(value=70)
